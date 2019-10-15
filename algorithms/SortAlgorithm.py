@@ -5,19 +5,19 @@
 """
 
 
-class SortAlgorithm():
+class SortAlgorithm(object):
 
     def __init__(self, dataset):
         self.dataset = dataset
 
     # executa uma iteração
     def next_iteration(self):
-        pass
+        raise NotImplementedError()
 
     # contém a implementação da lógica da ordenação
     def iteration(self):
-        pass
+        raise NotImplementedError()
 
     # retorna o dataset
     def get_dataset(self):
-        return self.dataset
+        raise NotImplementedError()

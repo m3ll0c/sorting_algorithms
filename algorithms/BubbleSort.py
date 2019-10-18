@@ -1,16 +1,16 @@
 """
-    Implementação batuta do Insertion Sort
+    Implementação batuta do Bubble Sort
     Author: Gabriel Melo
 """
 
 from algorithms.SortAlgorithm import SortAlgorithm as Parent
 
 
-class InsertionSort(Parent):
+class BubbleSort(Parent):
 
     def __init__(self, array):
         self.arr = array
-        self.index = 1  # 1 até tam(arr)
+        self.index = 0
 
     def next_iteration(self):
         if self.index < len(self.arr):
@@ -20,12 +20,11 @@ class InsertionSort(Parent):
         return False
 
     def iteration(self):
-        j = self.index - 1
-        key = self.arr[self.index]
-        while j >= 0 and key < self.arr[j]:
-            self.arr[j + 1] = self.arr[j]
-            j -= 1
-        self.arr[j + 1] = key
+        for j in range(self.index, len(self.arr) - 1):
+            if self.arr[j] > self.arr[j + 1]:
+                temp = self.arr[j + 1]
+                self.arr[j + 1] = self.arr[j]
+                self.arr[j] = temp
 
     def sort(self):
         while self.next_iteration():

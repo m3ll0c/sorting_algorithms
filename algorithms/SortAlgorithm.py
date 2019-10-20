@@ -18,3 +18,9 @@ class SortAlgorithm(object):
     # retorna o dataset
     def sort(self):
         raise NotImplementedError
+
+    def is_sorted(self):
+        for i in range(1, len(self.arr)):
+            if self.arr[i] < self.arr[i-1]:
+                return False
+        return True

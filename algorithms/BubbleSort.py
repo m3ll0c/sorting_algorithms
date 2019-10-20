@@ -20,7 +20,7 @@ class BubbleSort(Parent):
         return False
 
     def iteration(self):
-        for j in range(self.index, len(self.arr) - 1):
+        for j in range(0, len(self.arr) - 1):
             if self.arr[j] > self.arr[j + 1]:
                 temp = self.arr[j + 1]
                 self.arr[j + 1] = self.arr[j]

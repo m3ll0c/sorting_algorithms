@@ -3,25 +3,28 @@
 " Author: Gabriel Melo
 """
 
+from intro import intros
+from Controller import Controller
+from View import View
 from algorithms.InsertionSort import InsertionSort
 from algorithms.BubbleSort import BubbleSort
 from algorithms.BogoSort import BogoSort
+from random import randint, sample
+from threading import Thread
+
+def init_algs(dataset):
+    algs = list()
+    algs.append(InsertionSort(dataset.copy()))
+    algs.append(BubbleSort(dataset.copy()))
+    algs.append(BogoSort(dataset.copy()))
+    return algs
 
 
 def main():
-    arr = [0, 4, 5, 2, 1]
-
-    insert2 = InsertionSort(arr)
-    insert2.sort()
-    print(insert2.arr)
-
-    bubb2 = BubbleSort(arr)
-    bubb2.sort()
-    print(bubb2.arr)
-
-    bog = BogoSort(arr)
-    bog.sort(1000)  # chama a função que possui um limite de iterações
-    print(bog.arr)
+    print(intros[randint(0, len(intros) - 1)])
+    arr = sample(range(10), 10)
+    view = View(Controller(init_algs(arr)), timeout=1000)
+    view.show()
 
 
 if __name__ == '__main__':

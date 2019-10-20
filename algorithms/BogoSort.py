@@ -12,7 +12,7 @@ class BogoSort(Parent):
         self.index = 1
 
     def next_iteration(self):
-        if not self.isSorted():
+        if not self.is_sorted():
             self.iteration()
             return False
         else:
@@ -30,14 +30,8 @@ class BogoSort(Parent):
         while not self.next_iteration():
             pass
 
-    def sort(self, limit):
+    def sort_lim(self, limit):
         while not self.next_iteration():
             self.index += 1
             if self.index >= limit:
                 return
-
-    def isSorted(self):
-        for i in range(1, len(self.arr)):
-            if self.arr[i] < self.arr[i-1]:
-                return False
-        return True

@@ -31,3 +31,6 @@ class Controller:
             a.order()
             datasets[type(a).__name__] = a.arr
         self.currentDatasets = datasets
+
+    def alg_names(self):
+        return [type(a).__name__ for a in self.algorithms]

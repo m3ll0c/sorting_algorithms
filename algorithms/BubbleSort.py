@@ -3,10 +3,10 @@
     Author: Gabriel Melo
 """
 
-from algorithms.SortAlgorithm import SortAlgorithm as Parent
+from algorithms.SortAlgorithm import SortAlgorithm
 
 
-class BubbleSort(Parent):
+class BubbleSort(SortAlgorithm):
 
     def __init__(self, array):
         self.arr = array

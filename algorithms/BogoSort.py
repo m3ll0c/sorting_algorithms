@@ -2,10 +2,11 @@
     Implementação batuta do Bogo Sort
 """
 
-from algorithms.SortAlgorithm import SortAlgorithm as Parent
+from algorithms.SortAlgorithm import SortAlgorithm
 from random import randint
 
-class BogoSort(Parent):
+
+class BogoSort(SortAlgorithm):
 
     def __init__(self, array):
         self.arr = array

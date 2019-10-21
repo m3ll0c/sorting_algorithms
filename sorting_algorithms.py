@@ -7,9 +7,10 @@ from intro import intros
 from Controller import Controller
 from View import View
 from algorithms.InsertionSort import InsertionSort
+from algorithms.CountingSort import CountingSort
 from algorithms.BubbleSort import BubbleSort
 from algorithms.BogoSort import BogoSort
-from algorithms.CountingSort import CountingSort
+from algorithms.HeapSort import HeapSort
 from random import randint
 
 
@@ -19,6 +20,7 @@ def init_algs(dataset):
     algs.append(BubbleSort(dataset.copy()))
     algs.append(BogoSort(dataset.copy()))
     algs.append(CountingSort(dataset.copy()))
+    algs.append(HeapSort(dataset.copy()))
     return algs
 
 
@@ -28,8 +30,8 @@ def random_arr(size, lenght):
 
 def main():
     print(intros[randint(0, len(intros) - 1)])
-    arr = random_arr(500, 50)
-    view = View(Controller(init_algs(arr)), timeout=40)
+    arr = random_arr(500, 100)
+    view = View(Controller(init_algs(arr)), timeout=10)
     view.run()
 
 

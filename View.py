@@ -19,7 +19,7 @@ class View:
         self.controller.iter_all()
         for i in range(0, len(self.axs)):
             index = []
-            values = self.controller.currentDatasets[self.controller.algorithms[i].__class__.__name__].copy()
+            values = self.controller.currentDatasets[self.controller.algorithms[i].__class__.__name__]
             [index.append(i) for i in range(0, len(values))]
             self.axs[i].clear()
             self.axs[i].set_title(self.controller.algorithms[i].__class__.__name__)

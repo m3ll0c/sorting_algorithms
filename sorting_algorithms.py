@@ -11,6 +11,7 @@ from algorithms.CountingSort import CountingSort
 from algorithms.BubbleSort import BubbleSort
 from algorithms.BogoSort import BogoSort
 from algorithms.HeapSort import HeapSort
+from algorithms.PancakeSort import PancakeSort
 from random import randint
 
 
@@ -21,6 +22,7 @@ def init_algs(dataset):
     algs.append(BogoSort(dataset.copy()))
     algs.append(CountingSort(dataset.copy()))
     algs.append(HeapSort(dataset.copy()))
+    algs.append(PancakeSort(dataset.copy()))
     return algs
 
 

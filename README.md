@@ -1,6 +1,6 @@
 # SORTING ALGS  
 
-<img src="https://raw.githubusercontent.com/gabrielomelo/sorting_algorithms/master/docs/imgs/cli.png" height= "400" width="800">
+<img src="imgs/cli.png" height= "400" width="800">
 
 ## Descrição
 

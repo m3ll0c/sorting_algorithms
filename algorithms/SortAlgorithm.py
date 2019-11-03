@@ -7,14 +7,6 @@
 
 class SortAlgorithm(object):
 
-    # executa uma iteração
-    def next_iteration(self):
-        raise NotImplementedError
-
-    # contém a implementação da lógica da ordenação
-    def iteration(self):
-        raise NotImplementedError
-
     # retorna o dataset
     def sort(self):
         raise NotImplementedError

@@ -4,29 +4,36 @@
 """
 
 from algorithms.SortAlgorithm import SortAlgorithm
+import time
 
 
 class PancakeSort(SortAlgorithm):
 
     def __init__(self, array):
-        self.arr = array 
+        self.arr = array
         self.lastPancake = len(array) - 1
 
-    def flip(self, n):
-        self.arr[:n + 1] = reversed(self.arr[:n + 1])
+    def flip(self, i):
+        start = 0
+        while start < i:
+            self.arr[start], self.arr[i] = self.arr[i], self.arr[start]
+            start += 1
+            i -= 1
+            time.sleep(.5)
 
-    def next_iteration(self):
-        for _ in range(len(self.arr) - 1):
-            self.iteration()
-            self.lastPancake -= 1
-
-    def iteration(self):
-        biggerIndex = self.arr.index(max(self.arr[:self.lastPancake + 1]))
-        #flips the bigger number to the start of the array
-        self.flip(biggerIndex)
-        #flips the bigger number to the last non-fixed position
-        self.flip(self.lastPancake)
+    def find_max_index(self, last_pancake):
+        bigger_index = 0
+        for i in range(0, last_pancake + 1):
+            if self.arr[i] > self.arr[bigger_index]:
+                bigger_index = i
+            time.sleep(.5)
+        return bigger_index
 
     def sort(self):
-        while self.next_iteration():
-            pass
+        for last_pancake in reversed(range(1, len(self.arr))):
+            # gets the maximum index value in the array
+            bigger_index = self.find_max_index(last_pancake)
+            # flips the bigger number to the start of the array
+            self.flip(bigger_index)
+            # flips the bigger number to the last non-fixed position
+            self.flip(last_pancake)

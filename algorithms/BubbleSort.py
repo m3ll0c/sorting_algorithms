@@ -4,6 +4,7 @@
 """
 
 from algorithms.SortAlgorithm import SortAlgorithm
+import time
 
 
 class BubbleSort(SortAlgorithm):
@@ -12,20 +13,9 @@ class BubbleSort(SortAlgorithm):
         self.arr = array
         self.index = 0
 
-    def next_iteration(self):
-        if self.index < len(self.arr):
-            self.iteration()
-            self.index += 1
-            return True
-        return False
-
-    def iteration(self):
-        for j in range(0, len(self.arr) - 1):
-            if self.arr[j] > self.arr[j + 1]:
-                temp = self.arr[j + 1]
-                self.arr[j + 1] = self.arr[j]
-                self.arr[j] = temp
-
     def sort(self):
-        while self.next_iteration():
-            pass
+        for i in range(len(self.arr)):
+            for j in range(len(self.arr) - 1 - i):
+                if self.arr[j] > self.arr[j + 1]:
+                    self.arr[j], self.arr[j + 1] = self.arr[j + 1], self.arr[j]
+                time.sleep(.5)

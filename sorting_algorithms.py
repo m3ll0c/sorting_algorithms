@@ -57,14 +57,14 @@ def random_arr(size, lenght):
 def init_args():
     print(intros[randint(0, len(intros) - 1)])
     parser = argparse.ArgumentParser(
-        description="Programa que reune algoritmos de ordenação estudados em CC e permite sua visualização",
+        description="Programa que reune algoritmos de ordenação estudados em CC e permite sua visualização de forma gráfica.",
         usage="sorting_algorithms.py --size [N] --range [G] --timeout [M]")
     parser.add_argument('-l', '--lenght', metavar='N', type=int,
                         help='Size of the dataset. Default is 50.', default=50)
     parser.add_argument('-s', '--size', metavar='G', type=int,
                         help='Maximum value in the dataset. Default is 500.', default=500)
     parser.add_argument('-t', '--timeout', metavar='M', type=int,
-                        help='Sleep between the iterations, every class has the same coefficient. Default is 20',
+                        help='Sleep between the iterations, every class has the same coefficient. Default is 20.',
                         default=20)
     args = parser.parse_args()
     return args.size, args.lenght, args.timeout

@@ -6,16 +6,16 @@
 from algorithms.SortAlgorithm import SortAlgorithm
 import time
 
+
 class BubbleSort(SortAlgorithm):
 
     def __init__(self, array):
         self.arr = array
+        self.index = 0
 
     def sort(self):
-        for i in range(0, len(self.arr)):
-            for j in range(0, len(self.arr) - 1 - i):
+        for i in range(len(self.arr)):
+            for j in range(len(self.arr) - 1 - i):
                 if self.arr[j] > self.arr[j + 1]:
-                    time.sleep(0.5)
-                    temp = self.arr[j + 1]
-                    self.arr[j + 1] = self.arr[j]
-                    self.arr[j] = temp
+                    self.arr[j], self.arr[j + 1] = self.arr[j + 1], self.arr[j]
+                time.sleep(.5)

@@ -9,15 +9,16 @@ import time
 
 class InsertionSort(SortAlgorithm):
 
-    def __init__(self, array):
+    def __init__(self, array, timeout):
         self.arr = array
+        self.timeout = (timeout/1000) * 2
 
     def sort(self):
         for i in range(1, len(self.arr)):
             j = i - 1
             key = self.arr[i]
             while j >= 0 and key < self.arr[j]:
-                time.sleep(0.5)
+                time.sleep(self.timeout)
                 self.arr[j + 1] = self.arr[j]
                 j -= 1
             self.arr[j + 1] = key

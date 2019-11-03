@@ -9,9 +9,10 @@ import time
 
 class HeapSort(SortAlgorithm):
 
-    def __init__(self, array):
+    def __init__(self, array, timeout):
         self.arr = array
         self.size = len(self.arr)
+        self.timeout = (timeout / 1000) * 2
 
     def sort(self):
         for i in range(self.size, -1, -1):
@@ -19,9 +20,9 @@ class HeapSort(SortAlgorithm):
 
         for i in range(self.size-1, 0, -1):
             self.arr[i], self.arr[0] = self.arr[0], self.arr[i]
-            time.sleep(0.5)
+            time.sleep(self.timeout)
             self.heapify(self.arr, i, 0)
-            time.sleep(0.5)
+            time.sleep(self.timeout)
 
     def heapify(self, arr, n, i):
         largest = i

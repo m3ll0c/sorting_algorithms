@@ -9,12 +9,13 @@ import time
 
 class BogoSort(SortAlgorithm):
 
-    def __init__(self, array):
+    def __init__(self, array, timeout):
         self.arr = array
+        self.timeout = (timeout/1000) * 2
 
     def sort(self):
         while not self.is_sorted():
-            time.sleep(0.5)
+            time.sleep(self.timeout)
             for i in range(0, len(self.arr)):
                 i = randint(0, len(self.arr) - 1)
                 j = randint(0, len(self.arr) - 1)

@@ -7,11 +7,12 @@ import time
 
 class QuickSort(SortAlgorithm):
 
-    def __init__(self, array):
+    def __init__(self, array, timeout):
         self.arr = array
+        self.timeout = (timeout / 1000) * 2
 
     def sort(self):
-        self.quickSort(self.arr, 0, len(self.arr)-1)
+        self.quick_sort(self.arr, 0, len(self.arr) - 1)
 
     def partition(self, arr, low, high):
         i = (low - 1)
@@ -21,13 +22,12 @@ class QuickSort(SortAlgorithm):
             if arr[j] <= pivot:
                 i = i + 1
                 arr[i], arr[j] = arr[j], arr[i]
-
+                time.sleep(self.timeout)
         arr[i + 1], arr[high] = arr[high], arr[i + 1]
-        return (i + 1)
+        return i + 1
 
-    def quickSort(self, arr, low, high):
+    def quick_sort(self, arr, low, high):
         if low < high:
-            time.sleep(0.5)
             pi = self.partition(arr, low, high)
-            self.quickSort(arr, low, pi - 1)
-            self.quickSort(arr, pi + 1, high)
+            self.quick_sort(arr, low, pi - 1)
+            self.quick_sort(arr, pi + 1, high)

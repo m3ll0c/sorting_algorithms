@@ -3,6 +3,7 @@
 " Procura-se por meio desta interface abstrair as funções básicas que a aplicação espera do algoritmo
 " Author: Gabriel Melo
 """
+import sys
 
 
 class SortAlgorithm(object):

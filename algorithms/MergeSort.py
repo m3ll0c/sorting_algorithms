@@ -10,17 +10,15 @@ import time
 
 class MergeSort(Parent):
 
-    def __init__(self, dataset):
+    def __init__(self, dataset, timeout):
         self.arr = dataset
         self.size = len(self.arr)
-        self.arr_temp = []
+        self.timeout = (timeout/1000) * 2
 
     def sort(self):
-        MergeSort.merge_sort(self.arr, 0, len(self.arr) - 1)
+        self.merge_sort(self.arr, 0, len(self.arr) - 1)
 
-    @staticmethod
-    def merge(arr, l, m, r):
-
+    def merge(self, arr, l, m, r):
         n1 = m - l + 1
         n2 = r - m
         L = [0] * n1
@@ -50,11 +48,10 @@ class MergeSort(Parent):
             j += 1
             k += 1
 
-    @staticmethod
-    def merge_sort(arr, l, r):
+    def merge_sort(self, arr, l, r):
         if l < r:
             m = floor((l+r)/2)
-            MergeSort.merge_sort(arr, l, m)
-            MergeSort.merge_sort(arr, m + 1, r)
-            MergeSort.merge(arr, l, m, r)
-        time.sleep(.5)
+            self.merge_sort(arr, l, m)
+            self.merge_sort(arr, m + 1, r)
+            self.merge(arr, l, m, r)
+        time.sleep(self.timeout)

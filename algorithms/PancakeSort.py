@@ -9,9 +9,10 @@ import time
 
 class PancakeSort(SortAlgorithm):
 
-    def __init__(self, array):
+    def __init__(self, array, timeout):
         self.arr = array
         self.lastPancake = len(array) - 1
+        self.timeout = (timeout/1000) * 2
 
     def flip(self, i):
         start = 0
@@ -19,14 +20,14 @@ class PancakeSort(SortAlgorithm):
             self.arr[start], self.arr[i] = self.arr[i], self.arr[start]
             start += 1
             i -= 1
-            time.sleep(.5)
+            time.sleep(self.timeout)
 
     def find_max_index(self, last_pancake):
         bigger_index = 0
         for i in range(0, last_pancake + 1):
             if self.arr[i] > self.arr[bigger_index]:
                 bigger_index = i
-            time.sleep(.5)
+            time.sleep(self.timeout)
         return bigger_index
 
     def sort(self):

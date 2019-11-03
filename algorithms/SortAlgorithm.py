@@ -4,20 +4,16 @@
 " Author: Gabriel Melo
 """
 
-
-class SortAlgorithm(object):
+class SortAlgorithm:
 
     # executa uma iteração
     def next_iteration(self):
-        raise NotImplementedError
+        pass
 
     # contém a implementação da lógica da ordenação
     def iteration(self):
-        raise NotImplementedError
+        pass
 
-    # retorna o dataset
-    def sort(self):
-        raise NotImplementedError
 
     def is_sorted(self):
         for i in range(1, len(self.arr)):

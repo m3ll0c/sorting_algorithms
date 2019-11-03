@@ -1,58 +1,60 @@
 """
     Implementação batuta do Merge Sort
+    Author: Gabriel Melo
 """
 
 from algorithms.SortAlgorithm import SortAlgorithm as Parent
 from math import floor
+import time
 
 
 class MergeSort(Parent):
 
-    def next_iteration(self):
-        pass
-
-    def iteration(self):
-        pass
+    def __init__(self, dataset):
+        self.arr = dataset
+        self.size = len(self.arr)
+        self.arr_temp = []
 
     def sort(self):
-        pass
+        MergeSort.merge_sort(self.arr, 0, len(self.arr) - 1)
 
+    @staticmethod
+    def merge(arr, l, m, r):
 
+        n1 = m - l + 1
+        n2 = r - m
+        L = [0] * n1
+        R = [0] * n2
 
+        for i in range(0, n1):
+            L[i] = arr[l + i]
+        for j in range(0, n2):
+            R[j] = arr[m + 1 + j]
 
+        i, j, k = (0,0,l)
 
-
-
-
-
-
-def merge(llist, rlist):
-    final = []
-    while llist or rlist:
-
-        if len(llist) and len(rlist):
-            if llist[0] < rlist[0]:
-                final.append(llist.pop(0))
+        while i < n1 and j < n2:
+            if L[i] <= R[j]:
+                arr[k] = L[i]
+                i += 1
             else:
-                final.append(rlist.pop(0))
+                arr[k] = R[j]
+                j += 1
+            k += 1
+        while i < n1:
+            arr[k] = L[i]
+            i += 1
+            k += 1
+        while j < n2:
+            arr[k] = R[j]
+            j += 1
+            k += 1
 
-        if not len(llist):
-            if len(rlist): final.append(rlist.pop(0))
-
-        if not len(rlist):
-            if len(llist): final.append(llist.pop(0))
-
-    return final
-
-
-def merge_sort(arr):
-    if len(arr) < 2:
-        return arr
-
-    middle = floor(len(arr)/2)
-
-    return merge(merge_sort(arr[:middle]), merge_sort(arr[middle:]))
-
-
-
-print(merge_sort([2,3,4,1,0,99,13]))
+    @staticmethod
+    def merge_sort(arr, l, r):
+        if l < r:
+            m = floor((l+r)/2)
+            MergeSort.merge_sort(arr, l, m)
+            MergeSort.merge_sort(arr, m + 1, r)
+            MergeSort.merge(arr, l, m, r)
+        time.sleep(.5)

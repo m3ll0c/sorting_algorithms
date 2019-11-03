@@ -4,26 +4,24 @@
 """
 
 from algorithms.SortAlgorithm import SortAlgorithm
+import time
 
 
 class HeapSort(SortAlgorithm):
 
     def __init__(self, array):
         self.arr = array
-        self.index = (len(self.arr) -1)
+        self.size = len(self.arr)
 
-    def next_iteration(self):
-        self.iteration()
-        if self.index >= 0:
-            self.arr[self.index], self.arr[0] = self.arr[0], self.arr[self.index]  # swap da massa
-            self.heapify(self.arr, self.index, 0)
-            self.index -= 1
-            return True
-        return False
+    def sort(self):
+        for i in range(self.size, -1, -1):
+            self.heapify(self.arr, self.size, i)
 
-    def iteration(self):
-        for i in range(self.index, -1, -1):
-            self.heapify(self.arr, self.index, i)
+        for i in range(self.size-1, 0, -1):
+            self.arr[i], self.arr[0] = self.arr[0], self.arr[i]
+            time.sleep(0.5)
+            self.heapify(self.arr, i, 0)
+            time.sleep(0.5)
 
     def heapify(self, arr, n, i):
         largest = i
@@ -39,7 +37,3 @@ class HeapSort(SortAlgorithm):
         if largest != i:
             arr[i], arr[largest] = arr[largest], arr[i]  # swap da massa
             self.heapify(arr, n, largest)
-
-    def sort(self):
-        while self.next_iteration():
-            pass

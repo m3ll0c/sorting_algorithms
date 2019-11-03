@@ -4,24 +4,16 @@
 """
 
 from algorithms.SortAlgorithm import SortAlgorithm
-
+import time
 
 class CountingSort(SortAlgorithm):
 
     def __init__(self, array):
         self.arr = array
 
-    # executa uma iteração
-    def next_iteration(self):
-        if self.is_sorted() or len(self.arr) < 1:
-            return False
-        self.iteration()
-        return True
-
     # contém a implementação da lógica da ordenação
-    def iteration(self):
+    def sort(self):
         greater = None
-        temp = []
         for i in range(0, len(self.arr)):
             if i < 1:
                 greater = self.arr[i]
@@ -33,12 +25,12 @@ class CountingSort(SortAlgorithm):
         for e in self.arr:
             aux[e] += 1
 
+        index = 0
+        size = len(self.arr)
         for i in range(0, len(aux)):
             dump = [i] * aux[i]
-            temp.extend(dump)
-
-        self.arr = temp
-
-    # retorna o dataset
-    def sort(self):
-        self.next_iteration()
+            time.sleep(0.5)
+            for e in dump:
+                index += 1
+                self.arr.insert(index-1, e)
+            self.arr = self.arr[:size]

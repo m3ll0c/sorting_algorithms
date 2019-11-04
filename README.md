@@ -28,7 +28,7 @@ o matplotlib, já vem instalado junto do anaconda.
 
 ## Criadores
 
-Gabriel Melo [@gabrielomelo](https://github.com/gabrielomelo/) e Victtor Mendes [@VicttorSM](https://github.com/VicttorSM).
+Gabriel Melo [@gabrielomelo](https://github.com/gabrielomelo/), Victtor Mendes [@VicttorSM](https://github.com/VicttorSM) e Michelle Brandão.
 
 Caso tenha uma sugestão ou encontre algum bug abra uma Issue neste repositório.
 
